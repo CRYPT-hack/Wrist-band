@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  @apply bg-ink-950 text-slate-100 font-sans antialiased;
+  margin: 0;
+  background-image:
+    radial-gradient(1200px 600px at 10% -10%, rgba(139, 92, 246, 0.18), transparent),
+    radial-gradient(900px 500px at 110% 10%, rgba(34, 211, 238, 0.12), transparent),
+    linear-gradient(180deg, #070b18 0%, #05081a 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  border: none;
+  display: block;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  .glass-strong {
+    @apply bg-white/[0.07] backdrop-blur-2xl border border-white/10 rounded-2xl;
+  }
+  .card {
+    @apply glass shadow-card p-5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border border-white/10 bg-white/5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-medium transition-all;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-accent-violet to-accent-cyan text-white shadow-glow hover:opacity-95;
+  }
+  .btn-ghost {
+    @apply btn text-slate-200 hover:bg-white/10 border border-white/10;
+  }
+  .metric-label {
+    @apply text-[11px] uppercase tracking-[0.16em] text-slate-400 font-semibold;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
